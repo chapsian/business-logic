@@ -7,8 +7,22 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Avoid temporal dead zone by checking environment safely
+const getDirname = () => {
+  try {
+    if (typeof __dirname !== 'undefined') {
+      return __dirname;
+    }
+  } catch (e) {}
+  try {
+    if (import.meta.url) {
+      return path.dirname(fileURLToPath(import.meta.url));
+    }
+  } catch (e) {}
+  return process.cwd();
+};
+
+const _dirname = getDirname();
 
 async function startServer() {
   const app = express();
@@ -176,9 +190,9 @@ Provide your response strictly in the following JSON format:
     });
   } else {
     // Production serving static files
-    app.use(express.static(path.join(__dirname, 'dist')));
+    app.use(express.static(path.join(_dirname, 'dist')));
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+      res.sendFile(path.join(_dirname, 'dist', 'index.html'));
     });
   }
 

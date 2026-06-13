@@ -730,68 +730,181 @@ export default function App() {
                 <p className="text-slate-600 text-xs text-center">Consult directly with us to initiate corporate registrations in Nairobi. We track approvals step-by-step.</p>
               </div>
 
-              {/* Grid outline of categories */}
-              <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-                {[
-                  { title: "Business Name Registration", desc: "For Sole Proprietors" },
-                  { title: "Company Incorporation", desc: "Private Limited entities" },
-                  { title: "KRA PIN Registration", desc: "Tax activation setup" },
-                  { title: "Tax Compliance", desc: "First active TCC dossier" },
-                  { title: "NSSF/SHA Registry", desc: "Payroll statutory ports" },
-                  { title: "Business Permit", desc: "County trading permits" }
-                ].map((item, idx) => (
-                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-250/70 text-center flex flex-col justify-between">
-                    <div>
-                      <span className="font-mono text-xs text-indigo-500 font-extrabold block">0{idx+1}</span>
-                      <h4 className="font-bold text-slate-900 text-xs mt-1.5 leading-tight">{item.title}</h4>
+              {/* Detailed writeups for corporate registration offerings */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+                
+                {/* Card 1: Business Name */}
+                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center space-x-3.5 mb-4">
+                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
+                        <Briefcase className="h-5 w-5" />
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">Business Name Registration</h4>
                     </div>
-                    <p className="text-[10px] text-slate-500 font-sans mt-2">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
+                    
+                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
+                      Register your business name and start operating legally in Kenya with confidence. This registration is ideal for sole proprietors and small businesses looking to establish a professional presence.
+                    </p>
 
-              {/* Table pricing breakdown */}
-              <div className="mt-12 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-                <h4 className="font-bold text-slate-900 text-base mb-1">Official BRS Pricing Structure</h4>
-                <p className="text-xs text-slate-500 mb-4">Total fees breakdown as configured across government agencies and handling tariffs.</p>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse text-xs">
-                    <thead>
-                      <tr className="bg-slate-50 text-slate-600 font-mono font-bold border-b border-slate-100">
-                        <th className="p-3">Company Type Category</th>
-                        <th className="p-3">Govt Statutory Tariffs</th>
-                        <th className="p-3">Our Consultancy Fee</th>
-                        <th className="p-3 text-indigo-600">Client Outstanding Cost</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 text-slate-700">
-                      <tr>
-                        <td className="p-3 font-semibold">Business Name Registration</td>
-                        <td className="p-3 font-mono">KSh 950</td>
-                        <td className="p-3 font-mono">KSh 2,000</td>
-                        <td className="p-3 font-mono font-bold text-indigo-650">KSh 2,950</td>
-                      </tr>
-                      <tr>
-                        <td className="p-3 font-semibold">Partnership Registration</td>
-                        <td className="p-3 font-mono">KSh 950</td>
-                        <td className="p-3 font-mono font-bold">KSh 3,000</td>
-                        <td className="p-3 font-mono font-bold text-indigo-650">KSh 3,950</td>
-                      </tr>
-                      <tr>
-                        <td className="p-3 font-semibold">Private Limited Company Incorporation</td>
-                        <td className="p-3 font-mono">KSh 10,650</td>
-                        <td className="p-3 font-mono">KSh 15,000</td>
-                        <td className="p-3 font-mono font-bold text-indigo-650">KSh 25,650</td>
-                      </tr>
-                      <tr>
-                        <td className="p-3 font-semibold">LLP Registration (Limited Liability Partnership)</td>
-                        <td className="p-3 font-mono">KSh 25,000</td>
-                        <td className="p-3 font-mono">KSh 17,000</td>
-                        <td className="p-3 font-mono font-bold text-indigo-650">KSh 42,000</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                    <div className="mt-6 pt-4 border-t border-slate-100/80">
+                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
+                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Business Name Registration Certificate</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Official Business Registration Number</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Assistance with KRA PIN registration (where applicable)</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Guidance on business compliance requirements</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
+
+                {/* Card 2: Partnership */}
+                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center space-x-3.5 mb-4">
+                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
+                        <ShieldCheck className="h-5 w-5" />
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">Partnership Registration</h4>
+                    </div>
+                    
+                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
+                      Formalize your partnership and protect the interests of all partners through a legally recognized business structure. We help you register your partnership quickly and efficiently.
+                    </p>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100/80">
+                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
+                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Partnership Registration Certificate</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Registered Partnership Details</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Assistance with KRA PIN registration</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Guidance on partnership agreements and compliance requirements</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 3: Private Limited Company */}
+                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center space-x-3.5 mb-4">
+                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
+                        <Sparkles className="h-5 w-5" />
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">Private Limited Company Registration</h4>
+                    </div>
+                    
+                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
+                      A Private Limited Company provides credibility, limited liability protection, and greater opportunities for growth and investment. We handle the registration process from start to finish.
+                    </p>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100/80">
+                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
+                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Certificate of Incorporation</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Company Registration Number</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">KRA PIN for the Company</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">CR12 (upon request and availability)</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Company PIN and Tax Registration Support</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Assistance with opening a corporate bank account</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Guidance on statutory compliance requirements</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 4: LLP */}
+                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center space-x-3.5 mb-4">
+                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
+                        <FileText className="h-5 w-5" />
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">LLP (Limited Liability Partnership) Registration</h4>
+                    </div>
+                    
+                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
+                      An LLP combines the flexibility of a partnership with the liability protection of a company. It is an excellent structure for professionals and growing businesses.
+                    </p>
+
+                    <div className="mt-6 pt-4 border-t border-slate-100/80">
+                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
+                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">LLP Registration Certificate</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">LLP Registration Number</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">KRA PIN Registration Assistance</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Registered LLP Details</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Guidance on compliance and annual filing requirements</span>
+                        </li>
+                        <li className="flex items-start space-x-2">
+                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span className="font-sans font-medium">Support with business banking documentation</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
               </div>
 
             </div>

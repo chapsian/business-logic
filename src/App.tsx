@@ -442,7 +442,7 @@ export default function App() {
                 </div>
                 
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight uppercase font-sans">
-                  Outsourced Bookkeeping & <span className="text-indigo-600">Company Registrations</span> in Kenya
+                  business consultants in Kenya - <span className="text-indigo-600">call: 0720646916</span>
                 </h2>
                 
                 <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-serif">

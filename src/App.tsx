@@ -712,6 +712,14 @@ export default function App() {
                   </div>
                 ))}
               </div>
+
+              {/* Regulatory Independence Disclaimer */}
+              <div className="mt-12 bg-slate-50 border border-slate-200/80 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto text-center shadow-sm">
+                <p className="text-sm sm:text-base md:text-lg font-medium text-slate-650 leading-relaxed font-sans">
+                  Business logic is an independent, private accounting firm and is not affiliated with any government agency or official tax authority.
+                </p>
+              </div>
+
             </div>
           </section>
           {/* RENDER VIEW: CLIENT PORTAL (A.I ENABLED) */}

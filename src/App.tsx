@@ -489,14 +489,10 @@ export default function App() {
               </div>
 
               {/* Stats Highlights */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 text-center">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 text-center">
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <p className="font-sans font-black text-3xl text-indigo-600">0720646916</p>
                   <p className="text-xs text-slate-500 font-mono tracking-wider font-bold mt-1 uppercase">Instant Phone Line</p>
-                </div>
-                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                  <p className="font-sans font-black text-3xl text-indigo-600">e-Portal & Taxes</p>
-                  <p className="text-xs text-slate-500 font-mono tracking-wider font-bold mt-1 uppercase">Authorized Portals</p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
                   <p className="font-sans font-black text-3xl text-indigo-600">KSh 10,000</p>

@@ -357,7 +357,6 @@ export default function App() {
             <button onClick={() => { setActiveTab('home'); setTimeout(() => document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-slate-600 hover:text-indigo-600 transition">About</button>
             <button onClick={() => { setActiveTab('home'); setTimeout(() => document.getElementById('bookkeeping-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-slate-600 hover:text-indigo-600 transition">Bookkeeping</button>
             <button onClick={() => { setActiveTab('home'); setTimeout(() => document.getElementById('pricing-plans-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-slate-600 hover:text-indigo-600 transition">Plans</button>
-            <button onClick={() => { setActiveTab('home'); setTimeout(() => document.getElementById('company-registration-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-slate-600 hover:text-indigo-600 transition">Registrations</button>
             <button onClick={() => { handleScrollToPortal(); }} className="text-indigo-600 font-bold hover:text-indigo-700 transition flex items-center"><Sparkles className="h-3.5 w-3.5 mr-1" /> AI Portal</button>
             <button onClick={() => { setActiveTab('home'); setTimeout(() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="text-slate-600 hover:text-indigo-600 transition">Contact</button>
           </nav>
@@ -406,7 +405,6 @@ export default function App() {
           <button onClick={() => { setMobileMenuOpen(false); setActiveTab('home'); setTimeout(() => document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block w-full text-left py-2 text-slate-600 border-b border-slate-100">About Us</button>
           <button onClick={() => { setMobileMenuOpen(false); setActiveTab('home'); setTimeout(() => document.getElementById('bookkeeping-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block w-full text-left py-2 text-slate-600 border-b border-slate-100">Bookkeeping Services</button>
           <button onClick={() => { setMobileMenuOpen(false); setActiveTab('home'); setTimeout(() => document.getElementById('pricing-plans-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block w-full text-left py-2 text-slate-600 border-b border-slate-100">Bookkeeping Plans</button>
-          <button onClick={() => { setMobileMenuOpen(false); setActiveTab('home'); setTimeout(() => document.getElementById('company-registration-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block w-full text-left py-2 text-slate-600 border-b border-slate-100">Company Registration</button>
           <button onClick={() => { setMobileMenuOpen(false); handleScrollToPortal(); }} className="block w-full text-left py-2 text-indigo-600 border-b border-slate-100 flex items-center"><Sparkles className="h-3.5 w-3.5 mr-1.5 inline" /> AI Client Portal</button>
           <button onClick={() => { setMobileMenuOpen(false); setActiveTab('home'); setTimeout(() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' }), 100); }} className="block w-full text-left py-2 text-slate-600">Contact Us</button>
           
@@ -457,7 +455,7 @@ export default function App() {
                     Access AI Client Portal
                   </button>
                   <a
-                    href="https://wa.me/254720646916?text=Hello%20Business%20Logic,%20I%20am%20interested%20in%20your%2520bookkeeping%20and%2520company%20registration%2520services."
+                    href="https://wa.me/254720646916?text=Hello%20Business%20Logic,%20I%20am%20interested%20in%20your%20bookkeeping%20services."
                     target="_blank"
                     rel="noreferrer"
                     className="w-full sm:w-auto text-slate-700 hover:text-emerald-600 border border-slate-350 hover:border-emerald-500 bg-white font-sans font-bold text-sm px-8 py-4 rounded-2xl transition duration-200 text-center flex items-center justify-center"
@@ -483,10 +481,10 @@ export default function App() {
                 <span className="text-xs uppercase font-mono font-extrabold bg-indigo-50 border border-indigo-200 text-indigo-650 px-3.5 py-1.5 rounded-full inline-block">WHO WE ARE</span>
                 <h3 className="text-3xl font-extrabold text-slate-900 font-sans tracking-tight">Business Logic: Leading Corporate Consultants in Nairobi</h3>
                 <p className="text-slate-650 text-base leading-relaxed font-serif">
-                  Business logic is a business consultancy company based in Nairobi, Kenya. We specialize in outsourced bookkeeping services and outsourced company registration services. We are also one of a kind business consultancy company to have AI-enabled features in our service offering.
+                  Business logic is a business consultancy company based in Nairobi, Kenya. We specialize in outsourced bookkeeping services. We are also one of a kind business consultancy company to have AI-enabled features in our service offering.
                 </p>
                 <p className="text-slate-500 text-sm leading-relaxed max-w-2xl mx-auto font-sans">
-                  Whether you are behaving as an informal trader looking to convert to a Private Limited Company or an established enterprise seeking robust weekly general ledger reconciliation, statutory compliance reviews, or PAYE/NSSF management, we have tailored workflows designed to streamline operations seamlessly.
+                  Whether you are an established enterprise seeking robust weekly general ledger reconciliation, statutory compliance reviews, or PAYE/NSSF management, we have tailored workflows designed to streamline operations seamlessly.
                 </p>
               </div>
 
@@ -720,196 +718,6 @@ export default function App() {
               </div>
             </div>
           </section>
-
-          {/* Company Registration Section */}
-          <section id="company-registration-section" className="py-16 bg-slate-50 border-b border-slate-100">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center max-w-2xl mx-auto space-y-2 mb-12">
-                <span className="text-xs bg-indigo-50 border border-indigo-200 text-indigo-650 px-3 py-1 rounded-full font-mono font-bold uppercase">BRS eCitizen Frameworks</span>
-                <h3 className="text-3xl font-black text-slate-900 tracking-tight uppercase">OUTSOURCED COMPANY REGISTRATION SERVICES</h3>
-                <p className="text-slate-600 text-xs text-center">Consult directly with us to initiate corporate registrations in Nairobi. We track approvals step-by-step.</p>
-              </div>
-
-              {/* Detailed writeups for corporate registration offerings */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-                
-                {/* Card 1: Business Name */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-3.5 mb-4">
-                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
-                        <Briefcase className="h-5 w-5" />
-                      </div>
-                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">Business Name Registration</h4>
-                    </div>
-                    
-                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
-                      Register your business name and start operating legally in Kenya with confidence. This registration is ideal for sole proprietors and small businesses looking to establish a professional presence.
-                    </p>
-
-                    <div className="mt-6 pt-4 border-t border-slate-100/80">
-                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
-                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Business Name Registration Certificate</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Official Business Registration Number</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Assistance with KRA PIN registration (where applicable)</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Guidance on business compliance requirements</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 2: Partnership */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-3.5 mb-4">
-                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
-                        <ShieldCheck className="h-5 w-5" />
-                      </div>
-                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">Partnership Registration</h4>
-                    </div>
-                    
-                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
-                      Formalize your partnership and protect the interests of all partners through a legally recognized business structure. We help you register your partnership quickly and efficiently.
-                    </p>
-
-                    <div className="mt-6 pt-4 border-t border-slate-100/80">
-                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
-                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Partnership Registration Certificate</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Registered Partnership Details</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Assistance with KRA PIN registration</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Guidance on partnership agreements and compliance requirements</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 3: Private Limited Company */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-3.5 mb-4">
-                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
-                        <Sparkles className="h-5 w-5" />
-                      </div>
-                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">Private Limited Company Registration</h4>
-                    </div>
-                    
-                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
-                      A Private Limited Company provides credibility, limited liability protection, and greater opportunities for growth and investment. We handle the registration process from start to finish.
-                    </p>
-
-                    <div className="mt-6 pt-4 border-t border-slate-100/80">
-                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
-                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Certificate of Incorporation</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Company Registration Number</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">KRA PIN for the Company</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">CR12 (upon request and availability)</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Company PIN and Tax Registration Support</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Assistance with opening a corporate bank account</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Guidance on statutory compliance requirements</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 4: LLP */}
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm hover:border-indigo-200 transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center space-x-3.5 mb-4">
-                      <div className="h-11 w-11 bg-indigo-50 text-indigo-650 rounded-2xl flex items-center justify-center shrink-0 border border-indigo-100">
-                        <FileText className="h-5 w-5" />
-                      </div>
-                      <h4 className="font-extrabold text-slate-900 text-sm uppercase tracking-tight font-sans">LLP (Limited Liability Partnership) Registration</h4>
-                    </div>
-                    
-                    <p className="text-xs text-slate-600 leading-relaxed font-serif">
-                      An LLP combines the flexibility of a partnership with the liability protection of a company. It is an excellent structure for professionals and growing businesses.
-                    </p>
-
-                    <div className="mt-6 pt-4 border-t border-slate-100/80">
-                      <span className="text-[10px] font-mono font-black text-indigo-600 uppercase tracking-wider bg-indigo-50 px-2.5 py-1 rounded-full border border-indigo-100/50">What you will receive:</span>
-                      <ul className="mt-4 space-y-2.5 text-xs text-slate-700">
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">LLP Registration Certificate</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">LLP Registration Number</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">KRA PIN Registration Assistance</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Registered LLP Details</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Guidance on compliance and annual filing requirements</span>
-                        </li>
-                        <li className="flex items-start space-x-2">
-                          <Check className="h-4 w-4 text-emerald-500 shrink-0 mt-0.5" />
-                          <span className="font-sans font-medium">Support with business banking documentation</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </section>
-
           {/* RENDER VIEW: CLIENT PORTAL (A.I ENABLED) */}
           <section id="ai-portal-section" className="bg-slate-900 text-slate-100 min-h-[700px] border-t border-b border-slate-800 scroll-mt-20">
           
@@ -1183,7 +991,7 @@ export default function App() {
                       <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6">
                         <div className="flex justify-between items-center pb-4 border-b border-slate-850">
                           <div>
-                            <h4 className="font-extrabold text-sm text-slate-200">Company Registration Milestones Roadmap</h4>
+                            <h4 className="font-extrabold text-sm text-slate-200">Company Compliance Milestones Roadmap</h4>
                             <p className="text-[11px] text-slate-500 mt-1">Status of eCitizen government accounts and county licensing approvals.</p>
                           </div>
                           <span className="text-[11px] bg-slate-900 border border-slate-800 text-indigo-400 font-mono px-3 py-1 rounded-full font-bold">ECITIZEN STATUS</span>
@@ -1714,7 +1522,7 @@ export default function App() {
           <div className="space-y-3 col-span-2">
             <h4 className="font-extrabold text-white text-sm uppercase">Business Logic Kenya</h4>
             <p className="font-serif leading-relaxed text-slate-500">
-              Approved accounting consultancy and eCitizen corporate registrars based in Nairobi. We marry robust statutory diligence with safe server-side artificial intelligence systems to shelter SMEs from tax penalty exposures.
+              Approved accounting consultancy based in Nairobi. We marry robust statutory diligence with safe server-side artificial intelligence systems to shelter SMEs from tax penalty exposures.
             </p>
             <p className="font-mono text-[10px] text-zinc-650">Registered under ITA Section 15. All portal transactions sandbox encrypted.</p>
           </div>
@@ -1725,8 +1533,6 @@ export default function App() {
               <a href="#bookkeeping-section" className="hover:text-white">Bookkeeping & Reconciliations</a>
               <a href="#bookkeeping-section" className="hover:text-white font-medium text-slate-500">VAT & Turnover Tax Filings</a>
               <a href="#bookkeeping-section" className="hover:text-white">PAYE & SHA Audit Schedules</a>
-              <a href="#company-registration-section" className="hover:text-white">eCitizen Company Registration</a>
-              <a href="#company-registration-section" className="hover:text-white">LLP and Partnership Registries</a>
             </div>
           </div>
 

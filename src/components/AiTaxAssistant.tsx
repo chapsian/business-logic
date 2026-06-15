@@ -13,9 +13,9 @@ export default function AiTaxAssistant({ user, onUpgrade }: AiTaxAssistantProps)
     {
       id: 'welcome',
       sender: 'assistant',
-      content: `Habari! I am your Business Logic AI Tax Assistant. I specialize in Kenyan tax compliance (KRA iTax), payroll deductions (PAYE, SHA, NSSF, Housing Levy), and bookkeeping requirements. 
+      content: `Habari! I am your Business Logic AI Bookkeeping Assistant. I specialize in Kenyan corporate bookkeeping, payroll summary calculations (PAYE, SHA, NSSF, Housing Levy), and general ledger / accounting requirements. 
 
-How can I help you support your business compliance goals today?`,
+How can I help you support your business bookkeeping goals today?`,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -24,9 +24,9 @@ How can I help you support your business compliance goals today?`,
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const samplePrompts = [
-    "How is the PAYE calculated for KSh 70,000 salary?",
-    "What is the due date for filing monthly VAT in Kenya?",
-    "How do I apply for a Tax Compliance Certificate (TCC)?",
+    "How is the PAYE calculated for KSh 70,500 salary?",
+    "What is the due date for monthly VAT submissions?",
+    "How do I organize receipts for bookkeeping?",
     "Describe SHA statutory payroll deductions.",
   ];
 
@@ -129,12 +129,12 @@ Upgrade your plan to the **AI Enabled Premium Plan** today for only **KSh 10,000
           </div>
           <div>
             <h3 className="font-semibold text-white text-base flex items-center">
-              AI Tax Consultant
+              AI Accounting Assistant
               <span className="ml-2 text-[10px] px-2 py-0.5 bg-cyan-500/10 text-cyan-400 font-mono rounded-full border border-cyan-500/20 uppercase tracking-wider">
                 MVP
               </span>
             </h3>
-            <p className="text-xs text-slate-400">Powered by Gemini 3.5 Flash &middot; KRA iTax Expert</p>
+            <p className="text-xs text-slate-400">Powered by Gemini 3.5 Flash &middot; Accounting Expert</p>
           </div>
         </div>
         
@@ -239,7 +239,7 @@ Upgrade your plan to the **AI Enabled Premium Plan** today for only **KSh 10,000
           onKeyDown={(e) => {
             if (e.key === 'Enter') handleSendMessage(inputValue);
           }}
-          placeholder="Ask about VAT calculation, KRA iTax steps, PAYE bands..."
+          placeholder="Ask about VAT calculation, bookkeeping tips, PAYE bands..."
           className="flex-1 bg-slate-900 border border-slate-800 hover:border-slate-700 focus:border-indigo-500 px-4 py-3 rounded-xl text-sm text-white focus:outline-none placeholder-slate-500 font-sans transition-colors"
         />
         <button

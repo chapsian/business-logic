@@ -6,7 +6,7 @@ export const KENYAN_TAX_DEADLINES: TaxDeadline[] = [
     title: 'PAYE (Pay As You Earn) Filing',
     dueDate: '2026-07-09',
     category: 'PAYE',
-    description: 'Deduction of PAYE from employee salaries and submission of monthly returns through KRA iTax.',
+    description: 'Deduction of PAYE from employee salaries and submission of monthly returns through the e-Tax portal.',
     penaltyEstimate: 'Penalty of KSh 10,000 or 25% of tax due, whichever is higher.'
   },
   {
@@ -38,7 +38,7 @@ export const KENYAN_TAX_DEADLINES: TaxDeadline[] = [
     title: 'Monthly VAT Return Submission',
     dueDate: '2026-07-20',
     category: 'VAT',
-    description: 'Declaration of Input vs Output VAT for the preceding month on KRA iTax portal.',
+    description: 'Declaration of Input vs Output VAT for the preceding month on the tax e-portal.',
     penaltyEstimate: 'Penalty of KSh 10,000 or 5% of tax due, plus interest at 1% per month.'
   },
   {
@@ -63,13 +63,13 @@ export const COMPLIANCE_QUESTIONS: ComplianceQuestion[] = [
     ]
   },
   {
-    id: 'q-kra',
-    question: 'Does your business have a KRA PIN activated for taxes, and is your Tax Compliance Certificate (TCC) active?',
+    id: 'q-tax-pin',
+    question: 'Does your business have a Tax PIN activated for taxes, and is your Tax Compliance Certificate (TCC) active?',
     category: 'filing',
     options: [
-      { text: 'Yes, we have KRA PIN and an active, valid TCC', points: 25, tip: 'Superb! An active TCC is critical for bidding on tenders and maintaining corporate trust.' },
-      { text: 'We have a KRA PIN but our TCC has expired or is blocked due to unresolved dues', points: 10, tip: 'Urgent: Apply for a waiver or file pending returns to reactivate your Tax Compliance status.' },
-      { text: 'No KRA PIN exists for the business yet', points: 0, tip: 'Necessary Task: Company registration must be paired instantly with KRA PIN registration.' }
+      { text: 'Yes, we have a Tax PIN and an active, valid TCC', points: 25, tip: 'Superb! An active TCC is critical for bidding on tenders and maintaining corporate trust.' },
+      { text: 'We have a Tax PIN but our TCC has expired or is blocked due to unresolved dues', points: 10, tip: 'Urgent: Apply for a waiver or file pending returns to reactivate your Tax Compliance status.' },
+      { text: 'No Tax PIN exists for the business yet', points: 0, tip: 'Necessary Task: Tax PIN registration must be done when setting up the accounting systems.' }
     ]
   },
   {
@@ -120,7 +120,7 @@ export const CONSULTATION_SLOTS: ConsultationSlot[] = [
     id: 'slot-4',
     time: '03:30 PM - 04:30 PM',
     advisor: 'Arnold Kiprop',
-    role: 'KRA iTax & Statutory Auditor',
+    role: 'Accounting & Statutory Auditor',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200'
   }
 ];

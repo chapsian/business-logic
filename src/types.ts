@@ -71,7 +71,7 @@ export interface User {
   registrationStatus: {
     businessName: boolean;
     incorporation: boolean;
-    kraPin: boolean;
+    taxPin: boolean;
     taxCompliance: boolean;
     statutoryReg: boolean;
     businessPermit: boolean;

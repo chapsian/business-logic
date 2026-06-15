@@ -36,7 +36,7 @@ export default function App() {
   const [bookingInterest, setBookingInterest] = useState('Bookkeeping Audit');
   const [bookingSuccess, setBookingSuccess] = useState(false);
 
-  // KRA Calculator states
+  // Payroll Calculator states
   const [calcGross, setCalcGross] = useState<number>(65000);
   const [calcNssfType, setCalcNssfType] = useState<'new' | 'none'>('new');
   const [calcHousing, setCalcHousing] = useState<boolean>(true);
@@ -95,7 +95,7 @@ export default function App() {
       registrationStatus: {
         businessName: false,
         incorporation: false,
-        kraPin: false,
+        taxPin: false,
         taxCompliance: false,
         statutoryReg: false,
         businessPermit: false
@@ -117,7 +117,7 @@ export default function App() {
       registrationStatus: {
         businessName: true,
         incorporation: true,
-        kraPin: true,
+        taxPin: true,
         taxCompliance: false,
         statutoryReg: true,
         businessPermit: false
@@ -181,7 +181,7 @@ export default function App() {
     }, 2800);
   };
 
-  // KRA Payroll calculations helper
+  // Statutory Payroll calculations helper
   const computeKenyanTaxes = (gross: number) => {
     // 1. NSSF: New Rates Act 2013: Tier I is 6% of lower limit (7000) = 420. Tier II is 6% of upper limit up to 36000 (36000-7000 = 29000) * 6% = 1740. Total Max KSh 2,160.
     let nssf = 0;
@@ -204,7 +204,7 @@ export default function App() {
     // 4. Taxable pay (NSSF contribution is tax exempt in Kenya)
     const taxablePay = Math.max(0, gross - nssf);
 
-    // 5. PAYE tax calculations (KRA bands for 2026)
+    // 5. PAYE tax calculations (Statutory bands for 2026)
     let grossPaye = 0;
     let remains = taxablePay;
 
@@ -444,7 +444,7 @@ export default function App() {
                 </h2>
                 
                 <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-serif">
-                  Accurate, compliant, and scale-ready corporate compliance. At <strong>Business logic</strong>, we combine top-tier CPA(K) tax professionals with secure AI-enabled tools to power your business growth. Keep your KRA PIN state immaculate without the executive payroll cost.
+                  Accurate, compliant, and scale-ready corporate compliance. At <strong>Business logic</strong>, we combine top-tier CPA(K) professionals with secure AI-enabled tools to power your business growth. Keep your accounts and journals immaculate without the executive payroll cost.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 w-full">
@@ -466,9 +466,9 @@ export default function App() {
 
                 {/* Bullet badges */}
                 <div className="flex flex-wrap items-center justify-center gap-6 pt-6 border-t border-slate-200/60 text-xs font-mono font-bold text-slate-500 w-full">
-                  <span className="flex items-center"><Check className="text-indigo-500 h-4 w-4 mr-1" /> Approved KRA Tax Filers</span>
+                  <span className="flex items-center"><Check className="text-indigo-500 h-4 w-4 mr-1" /> Approved CPA Bookkeeping</span>
                   <span className="flex items-center"><Check className="text-indigo-500 h-4 w-4 mr-1" /> Automated OCR Bookkeeper</span>
-                  <span className="flex items-center"><Check className="text-indigo-500 h-4 w-4 mr-1" /> Quick iTax Turnarounds</span>
+                  <span className="flex items-center"><Check className="text-indigo-500 h-4 w-4 mr-1" /> Quick Financial Reporting</span>
                 </div>
               </div>
             </div>
@@ -495,7 +495,7 @@ export default function App() {
                   <p className="text-xs text-slate-500 font-mono tracking-wider font-bold mt-1 uppercase">Instant Phone Line</p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                  <p className="font-sans font-black text-3xl text-indigo-600">eCitizen & KRA</p>
+                  <p className="font-sans font-black text-3xl text-indigo-600">e-Portal & Taxes</p>
                   <p className="text-xs text-slate-500 font-mono tracking-wider font-bold mt-1 uppercase">Authorized Portals</p>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
@@ -542,9 +542,9 @@ export default function App() {
                   <div className="p-3 bg-emerald-50 text-emerald-600 rounded-xl w-fit font-bold">
                     <Shield className="h-6 w-6" />
                   </div>
-                  <h4 className="font-bold text-slate-900 mt-4 text-lg">Tax Filing Services</h4>
+                  <h4 className="font-bold text-slate-900 mt-4 text-lg">Tax Support & Computations</h4>
                   <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                    VAT returns compliance on iTax. We oversee Turnover Tax (TOT), VAT declarations, corporate annual income statements, and guide KRA audits to shelter you from penalties.
+                    VAT returns compliance support. We oversee Turnover Tax (TOT) estimation, VAT declarations, corporate annual income statements, and guide compliance reviews to shelter you from penalties.
                   </p>
                   <ul className="text-[11px] font-mono text-emerald-650 mt-3 space-y-1">
                     <li>&middot; VAT Computations & Filing</li>
@@ -559,7 +559,7 @@ export default function App() {
                   </div>
                   <h4 className="font-bold text-slate-900 mt-4 text-lg">Payroll Support Services</h4>
                   <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                    Prepare exact payslips, manage statutory deductions for SHA (Social Health Authority), NSSF, Housing Levy (1.5%), and PAYE return bands matching the KRA Employment Act requirements.
+                    Prepare exact payslips, manage statutory deductions for SHA (Social Health Authority), NSSF, Housing Levy (1.5%), and PAYE return bands matching the statutory Employment Act requirements.
                   </p>
                   <ul className="text-[11px] font-mono text-amber-650 mt-3 space-y-1">
                     <li>&middot; Payslip generation & Registers</li>
@@ -601,7 +601,7 @@ export default function App() {
                 <div className="bg-indigo-950 p-6 rounded-2xl text-white flex flex-col justify-between">
                   <div>
                     <span className="text-[10px] text-teal-300 font-mono font-bold">OUTSOURCED COMPLIANCE</span>
-                    <h4 className="font-bold text-lg mt-2">Need active audit support from a KRA expert?</h4>
+                    <h4 className="font-bold text-lg mt-2">Need active audit support from a CPA expert?</h4>
                     <p className="text-xs text-slate-300 mt-1">Our certified specialists are live. Call Gladys Wanjiku or David Omondi directly.</p>
                   </div>
                   <div className="mt-4 pt-4 border-t border-indigo-800">
@@ -633,7 +633,7 @@ export default function App() {
                       </tr>
                       <tr>
                         <td className="p-3 font-semibold text-indigo-600">Tax Filing</td>
-                        <td className="p-3">VAT Returns, Corporation Tax Returns, Turnover Tax Returns, Tax Computations, KRA Filing Confirmations</td>
+                        <td className="p-3">VAT Returns, Corporation Tax Returns, Turnover Tax Returns, Tax Computations, e-Portal Filing Confirmations</td>
                       </tr>
                       <tr>
                         <td className="p-3 font-semibold text-indigo-600">Payroll Support</td>
@@ -734,7 +734,7 @@ export default function App() {
                     <Sparkles className="h-5 w-5 animate-pulse" />
                   </div>
                   <h3 className="text-white font-extrabold text-xl tracking-tight">BUSINESS LOGIC CLIENTS PORTAL</h3>
-                  <p className="text-xs text-slate-400">Unlock compliance audit trails, KRA trackers, and interactive AI document parsers.</p>
+                  <p className="text-xs text-slate-400">Unlock compliance audit trails, compliance trackers, and interactive AI document parsers.</p>
                 </div>
 
                 {/* Toggles */}
@@ -912,7 +912,7 @@ export default function App() {
                       { id: 'analyzer', title: 'Bookkeeping OCR Analyzer', icon: FileText, badge: 'AI' },
                       { id: 'calculator', title: 'Payroll TAX Calculator', icon: Calculator },
                       { id: 'health', title: 'Compliance Checkup', icon: Activity },
-                      { id: 'deadlines', title: 'KRA Statutory Deadlines', icon: Calendar },
+                      { id: 'deadlines', title: 'Statutory Deadlines', icon: Calendar },
                       { id: 'booking', title: 'Consultation Planner', icon: Phone },
                       { id: 'upgrade', title: 'Plan & Billing Control', icon: CreditCard }
                     ].map((item) => {
@@ -1001,7 +1001,7 @@ export default function App() {
                           {[
                             { tag: 'businessName', label: 'Business Name', status: currentUser.registrationStatus.businessName },
                             { tag: 'incorporation', label: 'LLP / Limited Co', status: currentUser.registrationStatus.incorporation },
-                            { tag: 'kraPin', label: 'KRA PIN Setup', status: currentUser.registrationStatus.kraPin },
+                            { tag: 'taxPin', label: 'Tax PIN Setup', status: currentUser.registrationStatus.taxPin },
                             { tag: 'taxCompliance', label: 'Tax Compliance', status: currentUser.registrationStatus.taxCompliance },
                             { tag: 'statutoryReg', label: 'NSSF/SHA Setup', status: currentUser.registrationStatus.statutoryReg },
                             { tag: 'businessPermit', label: 'Business Permit', status: currentUser.registrationStatus.businessPermit }
@@ -1061,13 +1061,13 @@ export default function App() {
                     <DocumentAnalyzer user={currentUser} onUpgrade={() => setUpgradeOpen(true)} />
                   )}
 
-                  {/* TAB 4: KRA PAYROLL CALCULATOR */}
+                  {/* TAB 4: PAYROLL CALCULATOR */}
                   {portalTab === 'calculator' && (
                     <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6 space-y-6">
                       
                       <div>
                         <h4 className="font-extrabold text-slate-200 text-base">Kenyan Payroll statutory PAYE & Levy Calculator</h4>
-                        <p className="text-slate-450 text-xs mt-1">Compute custom tax and employee deductions conforming to official KRA bands.</p>
+                        <p className="text-slate-450 text-xs mt-1">Compute custom tax and employee deductions conforming to statutory tiers.</p>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
@@ -1137,7 +1137,7 @@ export default function App() {
 
                         {/* OUTSTANDING PAY SHEET DOCKET */}
                         <div className="md:col-span-7 bg-slate-900/60 border border-slate-850 p-5 rounded-xl space-y-4">
-                          <span className="text-[9px] bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full font-mono font-bold">KRA PAYSLIP SUMMARY</span>
+                          <span className="text-[9px] bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 px-2 py-0.5 rounded-full font-mono font-bold">STATUTORY PAYSLIP SUMMARY</span>
                           
                           <div className="space-y-2 font-mono text-xs text-slate-300">
                             <div className="flex justify-between items-center py-1.5 border-b border-slate-850">
@@ -1149,7 +1149,7 @@ export default function App() {
                               <span>- KSh {currentTaxes.nssf.toLocaleString()}.00</span>
                             </div>
                             <div className="flex justify-between items-center py-1.5 border-b border-slate-850">
-                              <span>KRA Taxable Income:</span>
+                              <span>Taxable Income:</span>
                               <span className="text-slate-205 text-white">KSh {currentTaxes.taxablePay.toLocaleString()}.00</span>
                             </div>
                             <div className="flex justify-between items-center py-1.5 border-b border-slate-850 text-red-400">
@@ -1176,7 +1176,7 @@ export default function App() {
 
                           <div className="bg-slate-950 p-3 rounded-lg border border-slate-800 text-[10px] text-slate-500 font-mono space-y-1">
                             <p className="font-bold text-slate-400">Tax Relief Configuration:</p>
-                            <p>&middot; Monthly KRA Personal Relief: KSh 2,400.00 (Deducted)</p>
+                            <p>&middot; Monthly Statutory Personal Relief: KSh 2,400.00 (Deducted)</p>
                             <p>&middot; Insurance relief calculated: KSh {(currentTaxes.sha * 0.15).toFixed(0)} (15% of SHA contribution)</p>
                           </div>
 
@@ -1240,7 +1240,7 @@ export default function App() {
                         })}
 
                         <div className="pt-4 border-t border-slate-850 flex items-center justify-between">
-                          <p className="text-xs text-slate-550 font-mono">Answers analyzed conform to current KRA Penalty Act rules.</p>
+                          <p className="text-xs text-slate-555 font-mono">Answers analyzed conform to current statutory accounting & tax rules.</p>
                           <button
                             onClick={() => {
                               setCompCompleted(true);
@@ -1262,7 +1262,7 @@ export default function App() {
                       
                       <div className="mb-6">
                         <h4 className="font-extrabold text-slate-200 text-base">Kenyan Statutory Tax Deadlines Tracker</h4>
-                        <p className="text-slate-500 text-xs mt-1">Calendar alerts structured to prevent compounding iTax arrears.</p>
+                        <p className="text-slate-500 text-xs mt-1">Calendar alerts structured to prevent compounding statutory arrears.</p>
                       </div>
 
                       <div className="space-y-4">
@@ -1416,7 +1416,7 @@ export default function App() {
                       </div>
                       <h4 className="font-extrabold text-white text-lg">Business Logic Premium AI Access</h4>
                       <p className="text-slate-400 text-xs max-w-md mx-auto font-serif">
-                        Get limitless OCR receipts analysis, infinite tax chats with the Gemini iTax engine, and priority queue handling with our CPA(K) audit professionals in Adams Arcade.
+                        Get limitless OCR receipts analysis, infinite chats with the Gemini bookkeeping engine, and priority queue handling with our CPA(K) audit professionals in Adams Arcade.
                       </p>
 
                       <div className="bg-slate-900 max-w-sm mx-auto p-4 rounded-xl border border-slate-800">
@@ -1454,7 +1454,7 @@ export default function App() {
               <span className="text-xs font-mono font-extrabold bg-indigo-50 border border-indigo-200 text-indigo-600 px-3 py-1 rounded-full uppercase">HQ DIRECTORY</span>
               <h3 className="text-3xl font-black text-slate-900 uppercase tracking-tight">CONTACT US</h3>
               <p className="text-sm text-slate-500 font-serif leading-relaxed">
-                Connect with our certified consulting group in Nairobi. Registered under accredited KRA systems for bookkeeping audits, eCitizen filings, and entity incorporations.
+                Connect with our certified consulting group in Nairobi. Registered and accredited CPA specialists for bookkeeping audits, statutory compliance, and entity configurations.
               </p>
             </div>
 
@@ -1549,7 +1549,7 @@ export default function App() {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-900 text-center text-slate-600 font-mono text-[11px]">
-          <p>&copy; {new Date().getFullYear()} Business Logic Kenya. All statutory files processed under accredited KRA systems.</p>
+          <p>&copy; {new Date().getFullYear()} Business Logic Kenya. All files processed securely with professional accounting standards.</p>
         </div>
       </footer>
 
@@ -1570,7 +1570,7 @@ export default function App() {
                 <Sparkles className="h-6 w-6 animate-pulse" />
               </div>
               <h4 className="font-black text-white text-base">Activate Premium Client Portal</h4>
-              <p className="text-xs text-slate-400">Get unlimited document scanning, unlimited tax queries, and instant KRA reports for <strong>KSh 10,000 monthly</strong>.</p>
+              <p className="text-xs text-slate-400">Get unlimited document scanning, unlimited bookkeeping queries, and instant financial reports for <strong>KSh 10,000 monthly</strong>.</p>
             </div>
 
             {/* Selector Method */}

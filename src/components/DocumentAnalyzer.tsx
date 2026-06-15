@@ -273,7 +273,7 @@ export default function DocumentAnalyzer({ user, onUpgrade }: DocumentAnalyzerPr
                   'Kenya Power & Lighting Co.', 'KSh 4,500.00', 'KSh 620.69 (16% VAT)', 
                   'Utilities / PowerTokens', 
                   'Electricity prepaid fuel-cost inclusive token transaction slip.',
-                  'Input VAT claimable. Ensure prepaid token tax invoice is downloaded from iTax using KPLC PIN P051096537M.'
+                  'Input VAT claimable. Ensure prepaid token tax invoice is downloaded from the tax e-portal using KPLC PIN P051096537M.'
                 )}
                 className="w-full text-left text-xs bg-slate-900 hover:bg-slate-850 text-slate-350 p-2.5 rounded-lg border border-slate-800 transition flex items-center justify-between"
               >
@@ -340,7 +340,7 @@ export default function DocumentAnalyzer({ user, onUpgrade }: DocumentAnalyzerPr
                 <div className="py-16 text-center space-y-3">
                   <RefreshCw className="h-8 w-8 text-indigo-400 animate-spin mx-auto" />
                   <p className="text-sm font-semibold text-slate-300">Extracting Transaction Data with Gemini AI...</p>
-                  <p className="text-xs text-slate-500 max-w-[280px] mx-auto">Parsing invoice numbers, merchant names, tax brackets, and compliance structures matching KRA iTax rules.</p>
+                  <p className="text-xs text-slate-500 max-w-[280px] mx-auto">Parsing invoice numbers, merchant names, tax brackets, and compliance structures matching official tax rules.</p>
                 </div>
               )}
 
@@ -372,7 +372,7 @@ export default function DocumentAnalyzer({ user, onUpgrade }: DocumentAnalyzerPr
                   </div>
 
                   <div className="bg-slate-900/60 border border-slate-800 p-3 rounded-lg">
-                    <p className="text-slate-500 font-mono uppercase text-[9px] tracking-wider">KRA VAT Component</p>
+                    <p className="text-slate-500 font-mono uppercase text-[9px] tracking-wider font-semibold">VAT Component</p>
                     <p className="text-slate-350 text-slate-200 text-sm font-mono mt-1 font-semibold">{activeDoc.extractedData.vatAmount || 'Non-VATable/Zero Rated'}</p>
                   </div>
 
@@ -384,7 +384,7 @@ export default function DocumentAnalyzer({ user, onUpgrade }: DocumentAnalyzerPr
                   <div className="col-span-2 bg-indigo-500/5 border border-indigo-550/20 p-3.5 rounded-lg flex items-start space-x-2.5">
                     <Sliders className="h-4 w-4 text-indigo-400 shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-indigo-200 font-mono text-[10px] uppercase font-bold tracking-wider">Bookkeeper KRA Compliance Advice</p>
+                      <p className="text-indigo-200 font-mono text-[10px] uppercase font-bold tracking-wider">Bookkeeper Compliance Advice</p>
                       <p className="text-indigo-300 mt-1 leading-relaxed text-[11px] font-sans">{activeDoc.extractedData.auditAdvice || 'No bookkeeping rules triggered. Keep receipt locked for audits.'}</p>
                     </div>
                   </div>
@@ -401,7 +401,7 @@ export default function DocumentAnalyzer({ user, onUpgrade }: DocumentAnalyzerPr
 
           <div className="border-t border-slate-800/60 pt-4 mt-6 flex items-center justify-between text-xs text-slate-500 font-mono">
             <span className="flex items-center"><ShieldCheck className="h-3.5 w-3.5 text-indigo-400 mr-1.5" /> Data isolated with regulatory-grade sandbox standards</span>
-            <span>KRA XML/JPEG V2</span>
+            <span>XML/JPEG V2</span>
           </div>
         </div>
 

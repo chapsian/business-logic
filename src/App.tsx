@@ -481,7 +481,7 @@ export default function App() {
                 <span className="text-xs uppercase font-mono font-extrabold bg-indigo-50 border border-indigo-200 text-indigo-650 px-3.5 py-1.5 rounded-full inline-block">WHO WE ARE</span>
                 <h3 className="text-3xl font-extrabold text-slate-900 font-sans tracking-tight">Business Logic: Leading Corporate Consultants in Nairobi</h3>
                 <p className="text-slate-650 text-base leading-relaxed font-serif">
-                  Business logic is a business consultancy company based in Nairobi, Kenya. We specialize in outsourced bookkeeping services. We are also one of a kind business consultancy company to have AI-enabled features in our service offering.
+                  Business logic is a trading style name under kaskazini consultants company. we specialize in outsourced bookkeeping services. We are also one of a kind business consultancy company to have AI-enabled features in our service offering.
                 </p>
                 <p className="text-slate-500 text-sm leading-relaxed max-w-2xl mx-auto font-sans">
                   Whether you are an established enterprise seeking robust weekly general ledger reconciliation, statutory compliance reviews, or PAYE/NSSF management, we have tailored workflows designed to streamline operations seamlessly.
@@ -711,13 +711,6 @@ export default function App() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Regulatory Independence Disclaimer */}
-              <div className="mt-12 bg-slate-50 border border-slate-200/80 rounded-2xl p-6 md:p-8 max-w-4xl mx-auto text-center shadow-sm">
-                <p className="text-sm sm:text-base md:text-lg font-medium text-slate-650 leading-relaxed font-sans">
-                  Business logic is an independent, private accounting firm and is not affiliated with any government agency or official tax authority.
-                </p>
               </div>
 
             </div>
@@ -1451,6 +1444,15 @@ export default function App() {
           )}
         </section>
 
+        {/* Regulatory Independence Disclaimer */}
+        <div className="bg-slate-50 border-t border-b border-slate-200/60 py-10">
+          <div className="max-w-4xl mx-auto px-4 text-center">
+            <p className="text-sm sm:text-base md:text-lg font-semibold text-slate-700 leading-relaxed font-sans">
+              Business logic is an independent, private accounting firm and is not affiliated with any government agency or official tax authority.
+            </p>
+          </div>
+        </div>
+
         {/* Contact Section */}
         <section id="contact-section" className="py-20 bg-white border-b border-slate-100 scroll-mt-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1496,7 +1498,14 @@ export default function App() {
 
             </div>
 
-            <div className="p-4 bg-indigo-50 rounded-2xl border border-indigo-100 max-w-2xl mx-auto mt-10 text-center">
+            {/* Legal Disclosure */}
+            <div className="max-w-2xl mx-auto mt-12 mb-6 bg-slate-50 border border-slate-200/80 rounded-2xl p-6 md:p-8 text-center shadow-sm">
+              <p className="text-base sm:text-lg md:text-xl font-bold text-slate-800 leading-relaxed font-sans">
+                legal disclosure:Business logic is a trading style name under kaskazini consultants company. kaskazini consultants is a fully registered business entity in kenya
+              </p>
+            </div>
+
+            <div className="p-4 bg-indigo-50 rounded-2xl border border-indigo-100 max-w-2xl mx-auto mt-6 text-center">
               <p className="text-[11px] text-indigo-950 leading-relaxed font-serif">
                 📢 <strong>Client Notice:</strong> We reside directly on the 10th floor of Applehood Building, Adams Arcade, off Ngong Road. Clients planning physically booked audits are welcome during weekdays between 8:00 AM and 5:00 PM.
               </p>
@@ -1552,8 +1561,8 @@ export default function App() {
 
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-900 text-center text-slate-600 font-mono text-[11px]">
-          <p>&copy; {new Date().getFullYear()} Business Logic Kenya. All files processed securely with professional accounting standards.</p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-slate-900 text-center">
+          <p className="text-slate-655 text-slate-600 font-mono text-[11px]">&copy; {new Date().getFullYear()} Business Logic Kenya. All files processed securely with professional accounting standards.</p>
         </div>
       </footer>
 

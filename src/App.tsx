@@ -578,21 +578,6 @@ export default function App() {
                   </ul>
                 </div>
 
-                {/* 5. Annual Returns */}
-                <div className="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition">
-                  <div className="p-3 bg-purple-50 text-purple-650 rounded-xl w-fit font-bold">
-                    <Briefcase className="h-6 w-6" />
-                  </div>
-                  <h4 className="font-bold text-slate-900 mt-4 text-lg">Annual Returns Services</h4>
-                  <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                    Maintain legal standing with the Business Registries (BRS) portal. We file annual company summaries, update director particulars, and reconcile structural registries.
-                  </p>
-                  <ul className="text-[11px] font-mono text-purple-650 mt-3 space-y-1">
-                    <li>&middot; BRS BRS-1 Return Files</li>
-                    <li>&middot; Legal status configurations</li>
-                  </ul>
-                </div>
-
                 {/* Contact Consultation Promo */}
                 <div className="bg-indigo-950 p-6 rounded-2xl text-white flex flex-col justify-between">
                   <div>
@@ -638,10 +623,6 @@ export default function App() {
                       <tr>
                         <td className="p-3 font-semibold text-indigo-600">Monthly Returns</td>
                         <td className="p-3">PAYE Returns, VAT Returns, SHA Returns, NSSF Returns, Housing Levy Returns, Filing Confirmations</td>
-                      </tr>
-                      <tr>
-                        <td className="p-3 font-semibold text-indigo-600">Annual Returns</td>
-                        <td className="p-3">Annual Return Filings, Compliance Reports, Updated Company Records, Filing Confirmations, Regulatory Compliance Support</td>
                       </tr>
                     </tbody>
                   </table>

@@ -65,15 +65,9 @@ async function startServer() {
           { role: 'user', parts: [{ text: message }] }
         ],
         config: {
-          systemInstruction: `You are the Business Logic AI Tax Assistant specialized in Kenyan tax compliance (KRA iTax), payroll deductions (PAYE, SHA/NHIF, NSSF, Housing Levy), company registration, bookkeeping advice, and KRA statutory guidelines.
+          systemInstruction: `You are the Business Logic AI Tax Assistant specialized in Kenyan tax compliance (KRA iTax), payroll deductions (PAYE, SHA/NHIF, NSSF, Housing Levy), bookkeeping advice, and KRA statutory guidelines.
 
-We have direct pricing for company registration consulting & premium services:
-- Business Name Registration: Govt fee 950 + Our Fee 2,000 = Client pays KSh 2,950
-- Partnership Registration: Govt fee 950 + Our Fee 3,000 = Client pays KSh 3,950
-- Private Limited Company Incorporation: Govt fee 10,650 + Our Fee 15,000 = Client pays KSh 25,650
-- LLP Registration: Govt fee 25,000 + Our Fee 17,000 = Client pays KSh 42,000
-
-We also offer bookkeeping pricing plans:
+We offer bookkeeping pricing plans:
 - Micro Business (0-3 employees): KSh 6,000/month
 - Small Business (3-10 employees): KSh 12,000/month (Most popular)
 - Growing SME ( > 10 employees): KSh 25,000/month
@@ -175,7 +169,7 @@ Provide your response strictly in the following JSON format:
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Logic | Bookkeeping & Company Registration Kenya</title>
+    <title>Business Logic | Bookkeeping Services Kenya</title>
   </head>
   <body class="bg-slate-950 text-slate-100 selection:bg-indigo-600 selection:text-white">
     <div id="root"></div>

@@ -131,14 +131,14 @@ export const BOOKKEEPING_PLANS = [
     title: 'Micro Business',
     price: 'KSh 6,000',
     cap: '0-3 employees',
-    services: ['Bookkeeping', 'Tax filing', 'Payroll support', 'Monthly returns', 'Annual returns']
+    services: ['Bookkeeping', 'Tax filing', 'Payroll support', 'Monthly returns']
   },
   {
     id: 'small',
     title: 'Small Business',
     price: 'KSh 12,000',
     cap: '3-10 employees',
-    services: ['Bookkeeping', 'Tax filing', 'Payroll support', 'Monthly returns', 'Annual returns'],
+    services: ['Bookkeeping', 'Tax filing', 'Payroll support', 'Monthly returns'],
     popular: true
   },
   {
@@ -146,6 +146,6 @@ export const BOOKKEEPING_PLANS = [
     title: 'Growing SME',
     price: 'KSh 25,000',
     cap: 'more than 10 employees',
-    services: ['Bookkeeping', 'Tax filing', 'Payroll support', 'Monthly returns', 'Annual returns']
+    services: ['Bookkeeping', 'Tax filing', 'Payroll support', 'Monthly returns']
   }
 ];

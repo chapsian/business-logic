@@ -9,7 +9,7 @@ export interface TaxDeadline {
   id: string;
   title: string;
   dueDate: string;
-  category: 'VAT' | 'PAYE' | 'Income Tax' | 'Statutory' | 'Annual';
+  category: 'VAT' | 'PAYE' | 'Income Tax' | 'Statutory';
   description: string;
   penaltyEstimate: string;
 }

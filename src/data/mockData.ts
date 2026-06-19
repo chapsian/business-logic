@@ -43,11 +43,11 @@ export const KENYAN_TAX_DEADLINES: TaxDeadline[] = [
   },
   {
     id: 'dl-corp',
-    title: 'Annual Income Tax Return (Companies)',
+    title: 'Corporate Income Tax Returns',
     dueDate: '2026-06-30',
-    category: 'Annual',
-    description: 'Submission of Audited Accounts and Self-Assessment returns for companies ending December 31st.',
-    penaltyEstimate: 'KSh 20,000 standard penalty plus interest compounding at 1% per month.'
+    category: 'Income Tax',
+    description: 'Submission of Audited Accounts and Corporate Income Tax files for companies ending December 31st.',
+    penaltyEstimate: 'KSh 20,000 standard penalty plus interest compounding at 1% per month on outstanding tax dues.'
   }
 ];
 
@@ -57,9 +57,9 @@ export const COMPLIANCE_QUESTIONS: ComplianceQuestion[] = [
     question: 'What is the current corporate tax compliance structure of your business?',
     category: 'filing',
     options: [
-      { text: 'We file and reconcile corporate taxes annually', points: 25, tip: 'Superb! Annual compliance prevents severe iTax penalties.' },
-      { text: 'We are registered for taxes but have not filed annual returns recently', points: 10, tip: 'Caution! Outstanding corporate returns attract KSh 20,000 annual penalty.' },
-      { text: 'We do not have a corporate configuration tracking system yet', points: 0, tip: 'Necessary Task: Get started with simple bookkeeping setup to track annual performance.' }
+      { text: 'We file and reconcile corporate taxes annually', points: 25, tip: 'Superb! Year-end tax filings prevent severe penalties on the portal.' },
+      { text: 'We have a tax PIN but have outstanding corporate tax filings', points: 10, tip: 'Caution! Outstanding corporate tax filings can lead to penalties and interest.' },
+      { text: 'We do not have a corporate configuration tracking system yet', points: 0, tip: 'Necessary Task: Get started with simple bookkeeping setup to track company performance.' }
     ]
   },
   {
@@ -79,7 +79,7 @@ export const COMPLIANCE_QUESTIONS: ComplianceQuestion[] = [
     options: [
       { text: 'Every month by the 9th deadline, without fail', points: 25, tip: 'Outstanding! This protects you from heavy compliance audits and labor prosecution.' },
       { text: 'We fail to meet deadlines frequently, or miss some obligations (e.g. Housing Levy or SHA)', points: 10, tip: 'Warning: Deducting statutory portions but failing to remit is a criminal offense in Kenya.' },
-      { text: 'Not applicable (0 employees) or we do not remit any statutory returns', points: 20, tip: 'Valid if operating purely solo, but keep NSSF/SHA registered individually.' }
+      { text: 'Not applicable (0 employees) or we do not remit any statutory returns', points: 20, tip: 'Valid if operating purely solo, but keep NSSF/SHA active individually.' }
     ]
   },
   {
@@ -88,7 +88,7 @@ export const COMPLIANCE_QUESTIONS: ComplianceQuestion[] = [
     category: 'bookkeeping',
     options: [
       { text: 'Professional bookkeeping updated weekly with monthly Profit & Loss statements', points: 25, tip: 'Perfect! Clean books are your gateway to bank financing, audits, and investor valuation.' },
-      { text: 'Basic records in Excel spreadsheets or mixed manual paper receipts', points: 10, tip: 'Consider outsourcing bookkeeping to keep clean balances, reconciled cash registers, and proper ledger matching.' },
+      { text: 'Basic records in Excel spreadsheets or mixed manual paper receipts', points: 10, tip: 'Consider outsourcing bookkeeping to keep clean balances, reconciled daily transactions, and proper ledger matching.' },
       { text: 'No structured recording; we use our personal bank account for everything', points: 0, tip: 'Critical: Co-mingling business and personal finances violates accounting rules and leads to audits.' }
     ]
   }

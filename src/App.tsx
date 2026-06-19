@@ -523,7 +523,7 @@ export default function App() {
                   </p>
                   <ul className="text-[11px] font-mono text-emerald-650 mt-3 space-y-1">
                     <li>&middot; VAT Computations & Filing</li>
-                    <li>&middot; Turnover Tax & Corporation returns</li>
+                    <li>&middot; Turnover Tax & Corporate Tax filing</li>
                   </ul>
                 </div>
 
@@ -537,7 +537,7 @@ export default function App() {
                     Prepare exact payslips, manage statutory deductions for SHA (Social Health Authority), NSSF, Housing Levy (1.5%), and PAYE return bands matching the statutory Employment Act requirements.
                   </p>
                   <ul className="text-[11px] font-mono text-amber-650 mt-3 space-y-1">
-                    <li>&middot; Payslip generation & Registers</li>
+                    <li>&middot; Payslip generation & payroll logs</li>
                     <li>&middot; SHA (2.75%), NSSF & Housing Levy schedules</li>
                   </ul>
                 </div>
@@ -593,15 +593,15 @@ export default function App() {
                       </tr>
                       <tr>
                         <td className="p-3 font-semibold text-indigo-600">Tax Filing</td>
-                        <td className="p-3">VAT Returns, Corporation Tax Returns, Turnover Tax Returns, Tax Computations, e-Portal Filing Confirmations</td>
+                        <td className="p-3">VAT filings, Corporate Tax files, Turnover Tax records, Tax Computations, e-Portal Confirmations</td>
                       </tr>
                       <tr>
                         <td className="p-3 font-semibold text-indigo-600">Payroll Support</td>
-                        <td className="p-3">Payroll Register, Employee Payslips, PAYE Schedules, SHA Schedules, NSSF Schedules, Housing Levy Schedules</td>
+                        <td className="p-3">Payroll Ledger, Employee Payslips, PAYE Schedules, SHA Schedules, NSSF Schedules, Housing Levy Schedules</td>
                       </tr>
                       <tr>
                         <td className="p-3 font-semibold text-indigo-600">Monthly Returns</td>
-                        <td className="p-3">PAYE Returns, VAT Returns, SHA Returns, NSSF Returns, Housing Levy Returns, Filing Confirmations</td>
+                        <td className="p-3">PAYE filings, VAT filings, SHA filings, NSSF filings, Housing Levy filings, Confirmations</td>
                       </tr>
                     </tbody>
                   </table>
@@ -778,7 +778,7 @@ export default function App() {
                       <input
                         type="email"
                         required
-                        placeholder="registered@company.co.ke"
+                        placeholder="info@company.co.ke"
                         value={authEmail}
                         onChange={(e) => setAuthEmail(e.target.value)}
                         className="w-full bg-slate-900 border border-slate-850 rounded-xl px-4 py-3 placeholder-slate-600 focus:border-indigo-500 focus:outline-none"
@@ -1237,7 +1237,7 @@ export default function App() {
                               <span className="text-xs block text-slate-500 font-mono">DUE DATE:</span>
                               <span className="font-black text-rose-500 text-base font-mono block mt-0.5">{dl.dueDate}</span>
                               <button 
-                                onClick={() => alert(`Filing request registered for ${dl.title}. Our bookkeeping assistants will contact you soon.`)}
+                                onClick={() => alert(`Filing request received for ${dl.title}. Our bookkeeping assistants will contact you soon.`)}
                                 className="mt-2 text-[10px] font-mono font-bold bg-indigo-500/10 text-indigo-300 hover:bg-indigo-600 hover:text-white border border-indigo-500/25 px-3 py-1.5 rounded transition"
                               >
                                 Request Filing assistance
@@ -1419,7 +1419,7 @@ export default function App() {
               <span className="text-xs font-mono font-extrabold bg-indigo-50 border border-indigo-200 text-indigo-600 px-3 py-1 rounded-full uppercase">HQ DIRECTORY</span>
               <h3 className="text-3xl font-black text-slate-900 uppercase tracking-tight">CONTACT US</h3>
               <p className="text-sm text-slate-500 font-serif leading-relaxed">
-                Connect with our certified consulting group in Nairobi. Registered and accredited CPA specialists for bookkeeping audits, statutory compliance, and entity configurations.
+                Connect with our certified consulting group in Nairobi. Licensed and accredited CPA specialists for bookkeeping audits, statutory compliance, and entity configurations.
               </p>
             </div>
 
@@ -1452,7 +1452,7 @@ export default function App() {
                 </div>
                 <h4 className="font-extrabold text-slate-800 text-sm font-sans">Statutory Email</h4>
                 <p className="font-mono text-slate-655 font-bold hover:underline text-xs"><a href="mailto:noble.consultants@yahoo.com">noble.consultants@yahoo.com</a></p>
-                <span className="text-[10px] text-slate-400 font-sans">Official Registrar Response</span>
+                <span className="text-[10px] text-slate-400 font-sans">Official Advisor Response</span>
               </div>
 
             </div>
@@ -1460,7 +1460,7 @@ export default function App() {
             {/* Legal Disclosure */}
             <div className="max-w-2xl mx-auto mt-12 mb-6 bg-slate-50 border border-slate-200/80 rounded-2xl p-6 md:p-8 text-center shadow-sm">
               <p className="text-base sm:text-lg md:text-xl font-bold text-slate-800 leading-relaxed font-sans">
-                legal disclosure:Business logic is a trading style name under kaskazini consultants company. kaskazini consultants is a fully registered business entity in kenya
+                Legal Disclosure: Business Logic is a licensed trading style under Kaskazini Consultants, a licensed business consulting firm in Kenya.
               </p>
             </div>
 
@@ -1496,7 +1496,7 @@ export default function App() {
             <p className="font-serif leading-relaxed text-slate-500">
               Approved accounting consultancy based in Nairobi. We marry robust statutory diligence with safe server-side artificial intelligence systems to shelter SMEs from tax penalty exposures.
             </p>
-            <p className="font-mono text-[10px] text-zinc-650">Registered under ITA Section 15. All portal transactions sandbox encrypted.</p>
+            <p className="font-mono text-[10px] text-zinc-650">Operating under ITA Section 15 guidelines. All portal transactions sandbox encrypted.</p>
           </div>
 
           <div className="space-y-2">

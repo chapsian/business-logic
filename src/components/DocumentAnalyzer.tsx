@@ -23,7 +23,7 @@ export default function DocumentAnalyzer({ user, onUpgrade }: DocumentAnalyzerPr
         category: 'Utilities / Water Charges',
         summary: 'Monthly compound water usage invoice for company site premises.',
         confidenceScore: 0.98,
-        auditAdvice: 'Eligible for Input tax offset since Nairobi Water is registered for VAT. Declare in Line 1A of monthly VAT return.'
+        auditAdvice: 'Eligible for Input tax offset since Nairobi Water has active VAT status. Declare in Line 1A of monthly VAT return.'
       }
     }
   ]);

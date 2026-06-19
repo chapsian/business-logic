@@ -362,7 +362,7 @@ export default function DocumentAnalyzer({ user, onUpgrade }: DocumentAnalyzerPr
                   </div>
                   
                   <div className="bg-slate-900/60 border border-slate-800 p-3 rounded-lg">
-                    <p className="text-slate-500 font-mono uppercase text-[9px] tracking-wider">Tax Registration Category</p>
+                    <p className="text-slate-500 font-mono uppercase text-[9px] tracking-wider">Tax Bookkeeping Category</p>
                     <p className="text-slate-205 text-slate-200 font-semibold text-sm mt-1">{activeDoc.extractedData.category || 'Uncategorized'}</p>
                   </div>
 

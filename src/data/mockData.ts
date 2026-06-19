@@ -53,13 +53,13 @@ export const KENYAN_TAX_DEADLINES: TaxDeadline[] = [
 
 export const COMPLIANCE_QUESTIONS: ComplianceQuestion[] = [
   {
-    id: 'q-reg',
-    question: 'What is the current registration status of your business in Kenya?',
-    category: 'registration',
+    id: 'q-structure',
+    question: 'What is the current corporate tax compliance structure of your business?',
+    category: 'filing',
     options: [
-      { text: 'We are a fully registered Private Limited Company or LLP', points: 25, tip: 'Excellent! You have full legal backing & liability protections.' },
-      { text: 'We have a registered Business Name (Sole Proprietorship/Partnership)', points: 15, tip: 'Good, but consider converting to a Limited Company to limit personal liability as you grow.' },
-      { text: 'We are behaving as an unregistered entity / informal trader', points: 0, tip: 'Caution! Operating without registration is legally risky and restricts corporate banking or contracts.' }
+      { text: 'We file and reconcile corporate taxes annually', points: 25, tip: 'Superb! Annual compliance prevents severe iTax penalties.' },
+      { text: 'We are registered for taxes but have not filed annual returns recently', points: 10, tip: 'Caution! Outstanding corporate returns attract KSh 20,000 annual penalty.' },
+      { text: 'We do not have a corporate configuration tracking system yet', points: 0, tip: 'Necessary Task: Get started with simple bookkeeping setup to track annual performance.' }
     ]
   },
   {
@@ -69,7 +69,7 @@ export const COMPLIANCE_QUESTIONS: ComplianceQuestion[] = [
     options: [
       { text: 'Yes, we have a Tax PIN and an active, valid TCC', points: 25, tip: 'Superb! An active TCC is critical for bidding on tenders and maintaining corporate trust.' },
       { text: 'We have a Tax PIN but our TCC has expired or is blocked due to unresolved dues', points: 10, tip: 'Urgent: Apply for a waiver or file pending returns to reactivate your Tax Compliance status.' },
-      { text: 'No Tax PIN exists for the business yet', points: 0, tip: 'Necessary Task: Tax PIN registration must be done when setting up the accounting systems.' }
+      { text: 'No Tax PIN exists for the business yet', points: 0, tip: 'Necessary Task: Tax PIN setup must be done when setting up the accounting systems.' }
     ]
   },
   {
@@ -123,13 +123,6 @@ export const CONSULTATION_SLOTS: ConsultationSlot[] = [
     role: 'Accounting & Statutory Auditor',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200'
   }
-];
-
-export const REGISTRATION_PRICING = [
-  { service: 'Business Name Registration', govt: 950, fee: 2000, total: 2950, checkTag: 'businessName' },
-  { service: 'Partnership Registration', govt: 950, fee: 3000, total: 3950, checkTag: 'statutoryReg' },
-  { service: 'Private Limited Company Incorporation', govt: 10650, fee: 15000, total: 25650, checkTag: 'incorporation' },
-  { service: 'LLP Registration', govt: 25000, fee: 17000, total: 42000, checkTag: 'statutoryReg' }
 ];
 
 export const BOOKKEEPING_PLANS = [

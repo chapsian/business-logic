@@ -17,7 +17,7 @@ export interface TaxDeadline {
 export interface ComplianceQuestion {
   id: string;
   question: string;
-  category: 'registration' | 'bookkeeping' | 'employees' | 'filing';
+  category: 'structure' | 'bookkeeping' | 'employees' | 'filing';
   options: {
     text: string;
     points: number;
@@ -68,12 +68,11 @@ export interface User {
   companyName: string;
   employeeCount: number;
   isPremium: boolean;
-  registrationStatus: {
-    businessName: boolean;
-    incorporation: boolean;
+  complianceStatus: {
     taxPin: boolean;
     taxCompliance: boolean;
     statutoryReg: boolean;
     businessPermit: boolean;
+    recordsAudit: boolean;
   };
 }

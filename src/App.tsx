@@ -5,7 +5,7 @@ import {
   Clock, ShieldCheck, Activity, FileText, Sparkles, AlertCircle, CheckCircle2 
 } from 'lucide-react';
 import { User, Booking } from './types';
-import { KENYAN_TAX_DEADLINES, CONSULTATION_SLOTS, REGISTRATION_PRICING, BOOKKEEPING_PLANS, COMPLIANCE_QUESTIONS } from './data/mockData';
+import { KENYAN_TAX_DEADLINES, CONSULTATION_SLOTS, BOOKKEEPING_PLANS, COMPLIANCE_QUESTIONS } from './data/mockData';
 import AiTaxAssistant from './components/AiTaxAssistant';
 import DocumentAnalyzer from './components/DocumentAnalyzer';
 
@@ -40,12 +40,6 @@ export default function App() {
   const [calcGross, setCalcGross] = useState<number>(65000);
   const [calcNssfType, setCalcNssfType] = useState<'new' | 'none'>('new');
   const [calcHousing, setCalcHousing] = useState<boolean>(true);
-
-  // Registration Calculator state
-  const [regSelection, setRegSelection] = useState<string>('Private Limited Company Incorporation');
-  const [regFormName, setRegFormName] = useState('');
-  const [regFormPhone, setRegFormPhone] = useState('');
-  const [regFormSuccess, setRegFormSuccess] = useState(false);
 
   // Compliance Check state
   const [compAnswers, setCompAnswers] = useState<Record<string, number>>({});
@@ -92,13 +86,12 @@ export default function App() {
       companyName: authCompany || `${authName} Trading`,
       employeeCount: authEmployees,
       isPremium: false,
-      registrationStatus: {
-        businessName: false,
-        incorporation: false,
+      complianceStatus: {
         taxPin: false,
         taxCompliance: false,
         statutoryReg: false,
-        businessPermit: false
+        businessPermit: false,
+        recordsAudit: false
       }
     };
     setCurrentUser(newUser);
@@ -114,13 +107,12 @@ export default function App() {
       companyName: "Kenya Trade Ltd",
       employeeCount: 4,
       isPremium: false,
-      registrationStatus: {
-        businessName: true,
-        incorporation: true,
+      complianceStatus: {
         taxPin: true,
         taxCompliance: false,
         statutoryReg: true,
-        businessPermit: false
+        businessPermit: false,
+        recordsAudit: true
       }
     };
     setCurrentUser(existingUser);
@@ -293,17 +285,6 @@ export default function App() {
 
   const compliancePercentage = getComplianceScore();
 
-  const handleRegFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!regFormName || !regFormPhone) return;
-    setRegFormSuccess(true);
-    setTimeout(() => {
-      setRegFormSuccess(false);
-      setRegFormName('');
-      setRegFormPhone('');
-    }, 4000);
-  };
-
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setContactSuccess(true);
@@ -314,8 +295,6 @@ export default function App() {
       setContactMsg('');
     }, 4000);
   };
-
-  const currentRegPricing = REGISTRATION_PRICING.find(r => r.service === regSelection) || REGISTRATION_PRICING[2];
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans" id="applet-viewport-root">
@@ -965,31 +944,30 @@ export default function App() {
 
                       </div>
 
-                      {/* Step-by-step registration status tracker */}
+                      {/* Step-by-step compliance status tracker */}
                       <div className="bg-slate-950 border border-slate-800 rounded-2xl p-6">
                         <div className="flex justify-between items-center pb-4 border-b border-slate-850">
                           <div>
                             <h4 className="font-extrabold text-sm text-slate-200">Company Compliance Milestones Roadmap</h4>
-                            <p className="text-[11px] text-slate-500 mt-1">Status of eCitizen government accounts and county licensing approvals.</p>
+                            <p className="text-[11px] text-slate-500 mt-1">Status of business tax configurations and county licensing approvals.</p>
                           </div>
-                          <span className="text-[11px] bg-slate-900 border border-slate-800 text-indigo-400 font-mono px-3 py-1 rounded-full font-bold">ECITIZEN STATUS</span>
+                          <span className="text-[11px] bg-slate-900 border border-slate-800 text-indigo-400 font-mono px-3 py-1 rounded-full font-bold">COMPLIANCE STATUS</span>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-6 gap-4 pt-6 text-center text-xs">
+                        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 pt-6 text-center text-xs">
                           {[
-                            { tag: 'businessName', label: 'Business Name', status: currentUser.registrationStatus.businessName },
-                            { tag: 'incorporation', label: 'LLP / Limited Co', status: currentUser.registrationStatus.incorporation },
-                            { tag: 'taxPin', label: 'Tax PIN Setup', status: currentUser.registrationStatus.taxPin },
-                            { tag: 'taxCompliance', label: 'Tax Compliance', status: currentUser.registrationStatus.taxCompliance },
-                            { tag: 'statutoryReg', label: 'NSSF/SHA Setup', status: currentUser.registrationStatus.statutoryReg },
-                            { tag: 'businessPermit', label: 'Business Permit', status: currentUser.registrationStatus.businessPermit }
+                            { tag: 'taxPin', label: 'Tax PIN Setup', status: currentUser.complianceStatus.taxPin },
+                            { tag: 'taxCompliance', label: 'Tax Compliance (TCC)', status: currentUser.complianceStatus.taxCompliance },
+                            { tag: 'statutoryReg', label: 'NSSF/SHA Setup', status: currentUser.complianceStatus.statutoryReg },
+                            { tag: 'businessPermit', label: 'Business Permit', status: currentUser.complianceStatus.businessPermit },
+                            { tag: 'recordsAudit', label: 'Records Audit', status: currentUser.complianceStatus.recordsAudit }
                           ].map((milestone, i) => (
                             <div 
                               key={i} 
                               onClick={() => {
                                 // Toggle milestone dynamically for trial demo
-                                const updatedStatus = { ...currentUser.registrationStatus, [milestone.tag]: !milestone.status };
-                                setCurrentUser({ ...currentUser, registrationStatus: updatedStatus });
+                                const updatedStatus = { ...currentUser.complianceStatus, [milestone.tag]: !milestone.status };
+                                setCurrentUser({ ...currentUser, complianceStatus: updatedStatus });
                               }}
                               className={`p-3 rounded-xl border cursor-pointer transition ${
                                 milestone.status 
@@ -1000,7 +978,7 @@ export default function App() {
                               <CheckCircle2 className={`h-4 w-4 mx-auto mb-2 ${milestone.status ? 'text-emerald-400 animate-pulse' : 'text-slate-700'}`} />
                               <p className="font-bold text-[10px] tracking-tight">{milestone.label}</p>
                               <span className="text-[9px] font-mono block mt-1">
-                                {milestone.status ? 'Approved✔️' : 'Unregistered'}
+                                {milestone.status ? 'Active✔️' : 'Inactive'}
                               </span>
                             </div>
                           ))}

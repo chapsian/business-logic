@@ -1,4 +1,5 @@
 import express from 'express';
+import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Type } from '@google/genai';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,40 +7,65 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const _dirname = path.dirname(__filename);
-
-const app = express();
-app.use(express.json({ limit: '15mb' }));
-
-// Initialize Gemini API
-const apiKey = process.env.GEMINI_API_KEY || '';
-if (!apiKey) {
-  console.warn("⚠️ Warning: GEMINI_API_KEY is not configured");
-}
-const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
-
-// AI Chat Endpoint
-app.post('/api/gemini/chat', async (req, res) => {
+// Avoid temporal dead zone by checking environment safely
+const getDirname = () => {
   try {
-    if (!ai) {
-      return res.status(500).json({
-        reply: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your environment variables."
-      });
+    if (typeof __dirname !== 'undefined') {
+      return __dirname;
     }
-    const { message, history, userContext } = req.body;
+  } catch (e) {}
+  try {
+    if (import.meta.url) {
+      return path.dirname(fileURLToPath(import.meta.url));
+    }
+  } catch (e) {}
+  return process.cwd();
+};
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash',
-      contents: [
-        ...history.map((h: any) => ({
-          role: h.role,
-          parts: h.parts.map((p: any) => ({ text: p.text }))
-        })),
-        { role: 'user', parts: [{ text: message }] }
-      ],
-      config: {
-        systemInstruction: `You are the Business Logic AI Tax Assistant specialized in Kenyan tax compliance (KRA iTax), payroll deductions (PAYE, SHA/NHIF, NSSF, Housing Levy), company registration, bookkeeping advice, and KRA statutory guidelines.
+const _dirname = getDirname();
+
+async function startServer() {
+  const app = express();
+  const isProd = process.env.NODE_ENV === 'production';
+  const port = 3000;
+
+  app.use(express.json({ limit: '15mb' }));
+
+  // Initialize Gemini API
+  const apiKey = process.env.GEMINI_API_KEY || '';
+  if (!apiKey) {
+    console.warn("⚠️ Warning: GEMINI_API_KEY is not configured in .env or secrets context.");
+  }
+  const ai = apiKey ? new GoogleGenAI({
+    apiKey,
+    httpOptions: {
+      headers: {
+        'User-Agent': 'aistudio-build',
+      },
+    },
+  }) : null;
+
+  // AI Chat Endpoint
+  app.post('/api/gemini/chat', async (req, res) => {
+    try {
+      if (!ai) {
+        return res.status(500).json({ 
+          reply: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your appSecrets in AI Studio Settings." 
+        });
+      }
+      const { message, history, userContext } = req.body;
+      
+      const response = await ai.models.generateContent({
+        model: 'gemini-3.5-flash',
+        contents: [
+          ...history.map((h: any) => ({
+            role: h.role,
+            parts: h.parts.map((p: any) => ({ text: p.text }))
+          })),
+          { role: 'user', parts: [{ text: message }] }
+        ],
+        config: {
+          systemInstruction: `You are the Business Logic AI Tax Assistant specialized in Kenyan tax compliance (KRA iTax), payroll deductions (PAYE, SHA/NHIF, NSSF, Housing Levy), company registration, bookkeeping advice, and KRA statutory guidelines.
 
 We have direct pricing for company registration consulting & premium services:
 - Business Name Registration: Govt fee 950 + Our Fee 2,000 = Client pays KSh 2,950
@@ -56,42 +82,42 @@ The logged-in user is ${userContext?.name || 'Client'}${userContext?.companyName
 They are on a ${userContext?.isPremium ? 'Premium Plan (unlocked)' : 'Free Trial'}.
 
 Respond concisely and professionally in Swahili/English (Sheng where appropriate syntax-wise, but maintain consulting corporate authority). Reference Kenyan tax laws (e.g., KRA iTax, Employment Act 2007, Income Tax Act, Affordable Housing Act). Offer useful advice but maintain clear formatting using short paragraphs & bullets.`
-      }
-    });
-
-    res.json({ reply: response.text });
-  } catch (e: any) {
-    console.error(e);
-    res.status(500).json({ error: e.message || "Failed to generate AI response" });
-  }
-});
-
-// AI Document Analysis Endpoint
-app.post('/api/gemini/analyze-document', async (req, res) => {
-  try {
-    if (!ai) {
-      return res.status(500).json({
-        error: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your environment variables."
+        }
       });
-    }
-    const { fileName, mimeType, base64 } = req.body;
-    if (!base64) {
-      return res.status(400).json({ error: "Missing document file data." });
-    }
 
-    const imagePart = {
-      inlineData: {
-        mimeType: mimeType || "image/png",
-        data: base64,
-      },
-    };
+      res.json({ reply: response.text });
+    } catch (e: any) {
+      console.error(e);
+      res.status(500).json({ error: e.message || "Failed to generate AI response" });
+    }
+  });
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.0-flash',
-      contents: [
-        imagePart,
-        {
-          text: `Analyze this Kenyan expense receipt, invoice, or statutory transaction slip, and extract compliance bookkeeping parameters securely.
+  // AI Document Analysis Endpoint
+  app.post('/api/gemini/analyze-document', async (req, res) => {
+    try {
+      if (!ai) {
+        return res.status(500).json({ 
+          error: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your appSecrets in AI Studio Settings." 
+        });
+      }
+      const { fileName, mimeType, base64 } = req.body;
+      if (!base64) {
+        return res.status(400).json({ error: "Missing document file data." });
+      }
+
+      const imagePart = {
+        inlineData: {
+          mimeType: mimeType || "image/png",
+          data: base64,
+        },
+      };
+
+      const response = await ai.models.generateContent({
+        model: 'gemini-3.5-flash',
+        contents: [
+          imagePart,
+          {
+            text: `Analyze this Kenyan expense receipt, invoice, or statutory transaction slip, and extract compliance bookkeeping parameters securely.
 Provide your response strictly in the following JSON format:
 {
   "merchantName": "Name of the merchant / KRA PIN holder",
@@ -103,43 +129,77 @@ Provide your response strictly in the following JSON format:
   "confidenceScore": 0.95,
   "auditAdvice": "Professional CPA bookkeeping compliance tip for Kenyan tax/KRA rules, detailing if this is tax-deductible or if input tax credits apply."
 }`
+          }
+        ],
+        config: {
+          responseMimeType: "application/json",
+          responseSchema: {
+            type: Type.OBJECT,
+            properties: {
+              merchantName: { type: Type.STRING },
+              invoiceDate: { type: Type.STRING },
+              totalAmount: { type: Type.STRING },
+              vatAmount: { type: Type.STRING },
+              category: { type: Type.STRING },
+              summary: { type: Type.STRING },
+              confidenceScore: { type: Type.NUMBER },
+              auditAdvice: { type: Type.STRING }
+            },
+            required: ["merchantName", "invoiceDate", "totalAmount", "category", "summary", "auditAdvice"]
+          }
         }
-      ],
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: {
-          type: Type.OBJECT,
-          properties: {
-            merchantName: { type: Type.STRING },
-            invoiceDate: { type: Type.STRING },
-            totalAmount: { type: Type.STRING },
-            vatAmount: { type: Type.STRING },
-            category: { type: Type.STRING },
-            summary: { type: Type.STRING },
-            confidenceScore: { type: Type.NUMBER },
-            auditAdvice: { type: Type.STRING }
-          },
-          required: ["merchantName", "invoiceDate", "totalAmount", "category", "summary", "auditAdvice"]
-        }
+      });
+
+      const extracted = JSON.parse(response.text || '{}');
+      res.json({ success: true, extracted });
+    } catch (e: any) {
+      console.error(e);
+      res.status(500).json({ error: e.message || "Document analysis failed." });
+    }
+  });
+
+  if (!isProd) {
+    // Create Vite server in middleware mode
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: 'custom',
+    });
+    app.use(vite.middlewares);
+    
+    // Fallback template server in dev mode
+    app.use('*', async (req, res, next) => {
+      const url = req.originalUrl;
+      try {
+        let template = await vite.transformIndexHtml(url, `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Logic | Bookkeeping & Company Registration Kenya</title>
+  </head>
+  <body class="bg-slate-950 text-slate-100 selection:bg-indigo-600 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>`);
+        res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
+      } catch (e) {
+        vite.ssrFixStacktrace(e as Error);
+        next(e);
       }
     });
-
-    const extracted = JSON.parse(response.text || '{}');
-    res.json({ success: true, extracted });
-  } catch (e: any) {
-    console.error(e);
-    res.status(500).json({ error: e.message || "Document analysis failed." });
+  } else {
+    // Production serving static files
+    const distPath = path.join(process.cwd(), 'dist');
+    app.use(express.static(distPath));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(distPath, 'index.html'));
+    });
   }
-});
 
-// For local dev only: serve static files
-// On Vercel, static files are served by the CDN automatically
-if (process.env.NODE_ENV !== 'production') {
-  const port = 3000;
   app.listen(port, '0.0.0.0', () => {
-    console.log(`✅ API server running on http://0.0.0.0:${port}`);
+    console.log(`Server listening on http://0.0.0.0:${port}`);
   });
 }
 
-// Export for Vercel serverless
-export default app;
+startServer();

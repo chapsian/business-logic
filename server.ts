@@ -7,22 +7,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// Avoid temporal dead zone by checking environment safely
-const getDirname = () => {
-  try {
-    if (typeof __dirname !== 'undefined') {
-      return __dirname;
-    }
-  } catch (e) {}
-  try {
-    if (import.meta.url) {
-      return path.dirname(fileURLToPath(import.meta.url));
-    }
-  } catch (e) {}
-  return process.cwd();
-};
-
-const _dirname = getDirname();
+const __filename = fileURLToPath(import.meta.url);
+const _dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
@@ -34,29 +20,22 @@ async function startServer() {
   // Initialize Gemini API
   const apiKey = process.env.GEMINI_API_KEY || '';
   if (!apiKey) {
-    console.warn("⚠️ Warning: GEMINI_API_KEY is not configured in .env or secrets context.");
+    console.warn("⚠️ Warning: GEMINI_API_KEY is not configured in .env");
   }
-  const ai = apiKey ? new GoogleGenAI({
-    apiKey,
-    httpOptions: {
-      headers: {
-        'User-Agent': 'aistudio-build',
-      },
-    },
-  }) : null;
+  const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
   // AI Chat Endpoint
   app.post('/api/gemini/chat', async (req, res) => {
     try {
       if (!ai) {
-        return res.status(500).json({ 
-          reply: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your appSecrets in AI Studio Settings." 
+        return res.status(500).json({
+          reply: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your .env file."
         });
       }
       const { message, history, userContext } = req.body;
-      
+
       const response = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
+        model: 'gemini-2.0-flash',   // ✅ Fixed: was 'gemini-3.5-flash' (doesn't exist)
         contents: [
           ...history.map((h: any) => ({
             role: h.role,
@@ -96,8 +75,8 @@ Respond concisely and professionally in Swahili/English (Sheng where appropriate
   app.post('/api/gemini/analyze-document', async (req, res) => {
     try {
       if (!ai) {
-        return res.status(500).json({ 
-          error: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your appSecrets in AI Studio Settings." 
+        return res.status(500).json({
+          error: "⚠️ Gemini API key is missing. Please add GEMINI_API_KEY to your .env file."
         });
       }
       const { fileName, mimeType, base64 } = req.body;
@@ -113,7 +92,7 @@ Respond concisely and professionally in Swahili/English (Sheng where appropriate
       };
 
       const response = await ai.models.generateContent({
-        model: 'gemini-3.5-flash',
+        model: 'gemini-2.0-flash',   // ✅ Fixed: was 'gemini-3.5-flash' (doesn't exist)
         contents: [
           imagePart,
           {
@@ -159,37 +138,14 @@ Provide your response strictly in the following JSON format:
   });
 
   if (!isProd) {
-    // Create Vite server in middleware mode
+    // Dev mode: Vite handles the frontend, Express handles /api
     const vite = await createViteServer({
       server: { middlewareMode: true },
-      appType: 'custom',
+      appType: 'spa',
     });
     app.use(vite.middlewares);
-    
-    // Fallback template server in dev mode
-    app.use('*', async (req, res, next) => {
-      const url = req.originalUrl;
-      try {
-        let template = await vite.transformIndexHtml(url, `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Logic | Bookkeeping & Company Registration Kenya</title>
-  </head>
-  <body class="bg-slate-950 text-slate-100 selection:bg-indigo-600 selection:text-white">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>`);
-        res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
-      } catch (e) {
-        vite.ssrFixStacktrace(e as Error);
-        next(e);
-      }
-    });
   } else {
-    // Production serving static files
+    // Production: serve the Vite build
     app.use(express.static(path.join(_dirname, 'dist')));
     app.get('*', (req, res) => {
       res.sendFile(path.join(_dirname, 'dist', 'index.html'));
@@ -197,7 +153,7 @@ Provide your response strictly in the following JSON format:
   }
 
   app.listen(port, '0.0.0.0', () => {
-    console.log(`Server listening on http://0.0.0.0:${port}`);
+    console.log(`✅ Server running on http://0.0.0.0:${port}`);
   });
 }
 

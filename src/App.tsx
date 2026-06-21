@@ -466,21 +466,7 @@ export default function App() {
       <footer className="bg-slate-950 text-slate-400 border-t border-slate-800 py-16 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto space-y-12">
           
-          {/* Statutory Policy Disclaimer block (Google Ads Compliance Safe Guard) */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 max-w-4xl mx-auto text-center space-y-4">
-            <div className="inline-flex items-center gap-2 text-[10px] font-mono font-black uppercase text-indigo-400 bg-indigo-950/50 px-3 py-1 rounded-full border border-indigo-900/50">
-              <ShieldAlert className="h-3.5 w-3.5" />
-              <span>CPA Policy Safeguard Disclosure</span>
-            </div>
-            
-            <p className="text-sm font-bold text-slate-200 leading-relaxed font-sans uppercase">
-              Business Logic (Kaskazini Consultants Company)
-            </p>
-            
-            <p className="text-[11px] text-slate-400 font-serif leading-relaxed max-w-3xl mx-auto">
-              Legal Statement: We are an independent, private accounting consulting boutique in Nairobi. Business Logic provides bookkeeping prep packages, payroll schedules calculations, internal bookkeeping advice, and audit readiness assistance. We are **NOT affiliated with, representative of, nor endorsed by** KRA (Kenya Revenue Authority), BRS (Business Registration Service), the National eCitizen portal, nor any public administrative municipal government registry.
-            </p>
-          </div>
+
 
           <div className="flex flex-col md:flex-row items-center justify-between border-t border-slate-900 pt-8 gap-4 text-xs font-mono text-slate-500">
             <div>

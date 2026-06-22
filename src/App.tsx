@@ -101,14 +101,9 @@ export default function App() {
           
           {/* Main Hero Copy - Left Column */}
           <div className="col-span-1 lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center space-x-1.5 bg-indigo-50 border border-indigo-100 px-3.5 py-1.5 rounded-full text-indigo-700 font-extrabold text-[11px] uppercase tracking-wider">
-              <span>Licensed Corporate Consultants in Kenya</span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.1] uppercase">
-              Smart Financial <br className="hidden sm:inline" />
-              <span className="text-indigo-600">Management</span> For <br />
-              Kenyan Growing Businesses
+              Accounting services <br className="hidden sm:inline" />
+              for <span className="text-indigo-600">Kenyan growing</span> businesses
             </h1>
 
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-serif leading-relaxed">

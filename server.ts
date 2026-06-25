@@ -29,6 +29,19 @@ async function startServer() {
   const isProd = process.env.NODE_ENV === 'production';
   const port = 3000;
 
+  if (isProd) {
+    app.set('trust proxy', true);
+    
+    // Force HTTP-to-HTTPS redirect for Google AdsBot and clients
+    app.use((req, res, next) => {
+      const proto = req.headers['x-forwarded-proto'];
+      if (proto && proto !== 'https') {
+        return res.redirect(301, `https://${req.headers.host}${req.url}`);
+      }
+      next();
+    });
+  }
+
   app.use(express.json({ limit: '15mb' }));
 
   // Initialize Gemini API

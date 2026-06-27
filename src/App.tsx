@@ -106,6 +106,10 @@ export default function App() {
               for <span className="text-indigo-600">Kenyan growing</span> businesses
             </h1>
 
+            <p className="text-lg sm:text-xl font-extrabold text-indigo-600 tracking-tight font-mono">
+              call us now: 0720646916
+            </p>
+
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-serif leading-relaxed">
               Focus on scaling your core business while we handle your financial records, payroll summaries, and internal tax readiness schemas.
             </p>
@@ -122,14 +126,6 @@ export default function App() {
               >
                 <span>Explore Services</span>
                 <ArrowRight className="h-4 w-4" />
-              </button>
-
-              <button 
-                onClick={() => scrollToId('plans')}
-                className="w-full sm:w-auto px-7 py-4 bg-white hover:bg-slate-50 text-slate-800 font-bold text-sm rounded-xl border border-slate-200 shadow-xs transition cursor-pointer flex items-center justify-center gap-1.5"
-              >
-                <span>View Pricing Plans</span>
-                <Check className="h-4 w-4 text-emerald-500" />
               </button>
             </div>
           </div>
@@ -274,10 +270,6 @@ export default function App() {
                       <h3 className="font-extrabold text-base text-white font-sans uppercase">{plan.title}</h3>
                       <p className="text-xs text-slate-500 mt-1 font-mono">{plan.cap}</p>
                     </div>
-                    <div className="text-right">
-                      <p className="font-mono font-black text-2xl text-indigo-400">{plan.price}</p>
-                      <p className="text-[10px] text-slate-500 font-mono">/ month</p>
-                    </div>
                   </div>
 
                   <ul className="mt-8 space-y-4 text-xs font-mono text-slate-300">
@@ -290,13 +282,16 @@ export default function App() {
                   </ul>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-900">
+                <div className="mt-8 pt-6 border-t border-slate-900 space-y-3">
                   <button 
                     onClick={() => scrollToId('contact')}
                     className="w-full py-3 bg-slate-900 hover:bg-indigo-650 text-slate-300 hover:text-white font-bold text-xs uppercase tracking-wider rounded-xl transition cursor-pointer border border-slate-800"
                   >
                     Select Onboard Partner
                   </button>
+                  <p className="text-[11px] text-center font-mono text-indigo-400 font-bold uppercase tracking-wider">
+                    call 0720646916 for quote
+                  </p>
                 </div>
               </div>
             ))}
@@ -314,7 +309,6 @@ export default function App() {
                   <tr className="border-b border-slate-800 text-slate-400 uppercase tracking-wider">
                     <th className="py-2">Plan</th>
                     <th className="py-2">Team Size</th>
-                    <th className="py-2">Monthly Rate</th>
                     <th className="py-2">Support Included</th>
                   </tr>
                 </thead>
@@ -322,19 +316,16 @@ export default function App() {
                   <tr>
                     <td className="py-3 font-bold text-white">Micro Business</td>
                     <td className="py-3">0–3 employees</td>
-                    <td className="py-3 text-indigo-400">Ksh 6,000 / month</td>
                     <td className="py-3 text-slate-400">Bookkeeping, Tax Prep, Payroll, Monthly Returns</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-bold text-white">Small Business</td>
                     <td className="py-3">3–10 employees</td>
-                    <td className="py-3 text-indigo-400">Ksh 12,000 / month</td>
                     <td className="py-3 text-slate-400">Bookkeeping, Tax Prep, Payroll, Monthly Returns</td>
                   </tr>
                   <tr>
                     <td className="py-3 font-bold text-white">Growing SME</td>
                     <td className="py-3">More than 10 employees</td>
-                    <td className="py-3 text-indigo-400">Ksh 25,000 / month</td>
                     <td className="py-3 text-slate-400">Bookkeeping, Tax Prep, Payroll, Monthly Returns</td>
                   </tr>
                 </tbody>

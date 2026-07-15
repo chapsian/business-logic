@@ -13,7 +13,10 @@ import {
   FileCheck2, 
   Coins,
   ShieldAlert,
-  ArrowUpRight
+  ArrowUpRight,
+  FileText,
+  Calculator,
+  FileSignature
 } from 'lucide-react';
 import { BOOKKEEPING_PLANS } from './data/mockData';
 import { motion } from 'motion/react';
@@ -109,6 +112,49 @@ export default function App() {
             <p className="text-lg sm:text-xl font-extrabold text-indigo-600 tracking-tight font-mono">
               call us now: 0720646916
             </p>
+
+            {/* 4 rectangular icons / service blocks for SEO and quick access */}
+            <div className="grid grid-cols-2 gap-4 pt-2">
+              <div className="bg-white border-2 border-slate-200/80 hover:border-indigo-500 rounded-2xl p-5 flex flex-col items-center lg:items-start text-center lg:text-left shadow-md transition-all duration-200 group">
+                <div className="bg-indigo-50 text-indigo-600 p-3.5 rounded-xl mb-3.5 group-hover:bg-indigo-100 transition-colors">
+                  <FileText className="h-6 w-6" />
+                </div>
+                <h2 className="text-base sm:text-lg font-black text-slate-900 tracking-tight font-sans uppercase">
+                  business plans
+                </h2>
+                <p className="text-[11px] text-slate-500 mt-1 font-mono uppercase">Strategic Modeling</p>
+              </div>
+
+              <div className="bg-white border-2 border-slate-200/80 hover:border-indigo-500 rounded-2xl p-5 flex flex-col items-center lg:items-start text-center lg:text-left shadow-md transition-all duration-200 group">
+                <div className="bg-indigo-50 text-indigo-600 p-3.5 rounded-xl mb-3.5 group-hover:bg-indigo-100 transition-colors">
+                  <Percent className="h-6 w-6" />
+                </div>
+                <h2 className="text-base sm:text-lg font-black text-slate-900 tracking-tight font-sans uppercase">
+                  taxes
+                </h2>
+                <p className="text-[11px] text-slate-500 mt-1 font-mono uppercase">Compliance & Filing</p>
+              </div>
+
+              <div className="bg-white border-2 border-slate-200/80 hover:border-indigo-500 rounded-2xl p-5 flex flex-col items-center lg:items-start text-center lg:text-left shadow-md transition-all duration-200 group">
+                <div className="bg-indigo-50 text-indigo-600 p-3.5 rounded-xl mb-3.5 group-hover:bg-indigo-100 transition-colors">
+                  <Calculator className="h-6 w-6" />
+                </div>
+                <h2 className="text-base sm:text-lg font-black text-slate-900 tracking-tight font-sans uppercase">
+                  accounting
+                </h2>
+                <p className="text-[11px] text-slate-500 mt-1 font-mono uppercase">Bookkeeping & Audit</p>
+              </div>
+
+              <div className="bg-white border-2 border-slate-200/80 hover:border-indigo-500 rounded-2xl p-5 flex flex-col items-center lg:items-start text-center lg:text-left shadow-md transition-all duration-200 group">
+                <div className="bg-indigo-50 text-indigo-600 p-3.5 rounded-xl mb-3.5 group-hover:bg-indigo-100 transition-colors">
+                  <FileSignature className="h-6 w-6" />
+                </div>
+                <h2 className="text-base sm:text-lg font-black text-slate-900 tracking-tight font-sans uppercase">
+                  business proposals
+                </h2>
+                <p className="text-[11px] text-slate-500 mt-1 font-mono uppercase">Funding & Proposals</p>
+              </div>
+            </div>
 
             <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 font-serif leading-relaxed">
               Focus on scaling your core business while we handle your financial records, payroll summaries, and internal tax readiness schemas.
@@ -222,6 +268,19 @@ export default function App() {
               </h3>
               <p className="text-slate-600 mt-3 text-sm leading-relaxed font-serif">
                 Stay organized month after month. We compile, reconcile, and prepare the necessary monthly internal financial data and summaries required for your business health checks and routine reporting timelines.
+              </p>
+            </div>
+
+            {/* Service 5 */}
+            <div className="bg-slate-50/70 border border-slate-200/95 hover:border-indigo-300 rounded-2xl p-8 transition shadow-xs group md:col-span-2">
+              <div className="h-11 w-11 rounded-xl bg-indigo-600 flex items-center justify-center text-white mb-6 group-hover:scale-105 transition-transform shadow-sm">
+                <FileSignature className="h-5 w-5" />
+              </div>
+              <h3 className="text-lg font-extrabold font-sans text-slate-900 uppercase">
+                5. Business Plan and Proposal Writing
+              </h3>
+              <p className="text-slate-600 mt-3 text-sm leading-relaxed font-serif">
+                We assist businesses and individuals write their business plans and proposals. Our business plans and proposals are winning documents enabling businesses to attract funding and also guide business owners on their business journey.
               </p>
             </div>
 

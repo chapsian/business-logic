@@ -105,8 +105,8 @@ export default function App() {
           {/* Main Hero Copy - Left Column */}
           <div className="col-span-1 lg:col-span-7 space-y-6 text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.1] uppercase">
-              Accounting services <br className="hidden sm:inline" />
-              for <span className="text-indigo-600">Kenyan growing</span> businesses
+              BUSINESSPLAN WRITING SERVICES <br className="hidden sm:inline" />
+              <span className="text-indigo-600">IN KENYA</span> - CALL: 0720646916
             </h1>
 
             <p className="text-lg sm:text-xl font-extrabold text-indigo-600 tracking-tight font-mono">
